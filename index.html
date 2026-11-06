@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octavinelle - Twisted Wonderland</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+
+    <div class="contenedor-principal">
+
+        <!-- Inicio / Home -->
+        <div id="inicio" class="pantalla activa">
+            <div class="banner">
+                <div class="banner-texto">
+                    <h1>Octavinelle</h1>
+                    <div class="linea-divisoria"></div>
+                    <p>Twisted-Wonderland</p>
+                </div>
+                <!-- Logo del dormitorio -->
+                <div class="logo-box">
+                    <img src="static/images/Octavinelle_dormitory-archive.png" alt="Logo Octavinelle" class="img-logo">
+                </div>
+            </div>
+
+            <h2 class="titulo-seccion">Información relevante</h2>
+
+            <div class="grid-tarjetas">
+                <!-- Tarjeta Personajes -->
+                <div class="tarjeta-opcion" onclick="cambiarPantalla('personajes')">
+                    <div class="imagen-tarjeta">
+                        <img src="img/personajes-preview.png" alt="Personajes" class="img-preview">
+                    </div>
+                    <div class="contenido-tarjeta">
+                        <h3>Personajes</h3>
+                        <p>Los estudiantes de Octavinelle</p>
+                        <div class="barrita-grupo">
+                            <div class="barrita"></div>
+                            <div class="punto-barrita"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Ambientes -->
+                <div class="tarjeta-opcion" onclick="mostrarModal('modal-ambientes')">
+                    <div class="imagen-tarjeta">
+                        <img src="img/ambientes-preview.png" alt="Ambientes" class="img-preview">
+                    </div>
+                    <div class="contenido-tarjeta">
+                        <h3>Ambientes</h3>
+                        <p>Ambientes del dormitorio</p>
+                        <div class="barrita-grupo">
+                            <div class="barrita"></div>
+                            <div class="punto-barrita"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Libro 3 -->
+                <div class="tarjeta-opcion centrada" onclick="mostrarModal('modal-libro3')">
+                    <div class="imagen-tarjeta">
+                        <img src="img/libro3-preview.png" alt="Libro 3" class="img-preview">
+                    </div>
+                    <div class="contenido-tarjeta">
+                        <h3>Libro 3</h3>
+                        <p>Resumen del libro de Octavinelle</p>
+                        <div class="barrita-grupo">
+                            <div class="barrita"></div>
+                            <div class="punto-barrita"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="titulo-seccion">Descripción general</h2>
+
+            <div class="lista-desplegables">
+                <button class="btn-desplegable" onclick="toggleDesplegable(this, 'txt-valores')">
+                    <span class="flecha">▼</span>
+                    <div class="info-btn">
+                        <h4>Valores y disciplinas</h4>
+                        <span>Más información...</span>
+                    </div>
+                </button>
+                <div id="txt-valores" class="contenido-desplegable">
+                    Basado en la compasión y astucia de la Bruja del Mar. Los estudiantes de Octavinelle destacan por
+                    sus altas capacidades académicas, su sentido de los negocios y su refinamiento en las artes sociales
+                    y culinarias.
+                </div>
+
+                <button class="btn-desplegable" onclick="toggleDesplegable(this, 'txt-historia')">
+                    <span class="flecha">▼</span>
+                    <div class="info-btn">
+                        <h4>Historia</h4>
+                        <span>Más información...</span>
+                    </div>
+                </button>
+                <div id="txt-historia" class="contenido-desplegable">
+                    Fundado bajo la benevolencia de la Bruja del Mar. Es famoso dentro de Night Raven College por
+                    administrar el popular café Mostro Lounge y por albergar a estudiantes de origen marino.
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista de Personajes -->
+        <div id="personajes" class="pantalla">
+            <button class="btn-volver" onclick="cambiarPantalla('inicio')">❮</button>
+
+            <!-- Azul -->
+            <div class="tarjeta-pj">
+                <div class="avatar-box">
+                    <img src="static/images/Icon_Azul_Uniforme_de_Octavinelle_SSR.jpg" alt="Azul Ashengrotto" class="img-pj">
+                </div>
+                <div class="cuerpo-tarjeta">
+                    <h2 class="nombre-pj">Azul<br>Ashengrotto</h2>
+                    <div class="caja-info">
+                        Año escolar: Segundo año<br>
+                        Ocupación: Estudiante<br>
+                        Edad: 17
+                    </div>
+                    <p class="desc-pj">
+                        Destaca por su personalidad educada, calculadora y ambiciosa. Su magia única es <em>It's a
+                            Deal</em>, la cual le permite arrebatar las habilidades o magia de una persona a cambio de
+                        cumplirle un deseo mediante un contrato estricto.
+                    </p>
+                    <div class="barrita-grupo">
+                        <div class="barrita"></div>
+                        <div class="punto-barrita"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jade -->
+            <div class="tarjeta-pj">
+                <div class="avatar-box">
+                    <img src="static/images/Icon_Jade_R_School_Uniform.jpg" alt="Jade Leech" class="img-pj">
+                </div>
+                <div class="cuerpo-tarjeta">
+                    <h2 class="nombre-pj">Jade<br>Leech</h2>
+                    <div class="caja-info">
+                        Año escolar: Segundo año<br>
+                        Ocupación: Estudiante<br>
+                        Edad: 17
+                    </div>
+                    <p class="desc-pj">
+                        Es la mano derecha de Azul y se caracteriza por ser formal, refinado y sonriente, aunque con un
+                        lado curioso por el peligro y los hongos silvestres. Su magia única es <em>Shocking Smile</em>,
+                        que obliga a decir la verdad al mirarlo fijamente a los ojos.
+                    </p>
+                    <div class="barrita-grupo">
+                        <div class="barrita"></div>
+                        <div class="punto-barrita"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floyd -->
+            <div class="tarjeta-pj">
+                <div class="avatar-box">
+                    <img src="static/images/Icon_Floyd_R_School_Uniform.jpg" alt="Floyd Leech" class="img-pj">
+                </div>
+                <div class="cuerpo-tarjeta">
+                    <h2 class="nombre-pj">Floyd<br>Leech</h2>
+                    <div class="caja-info">
+                        Año escolar: Segundo año<br>
+                        Ocupación: Estudiante<br>
+                        Edad: 17
+                    </div>
+                    <p class="desc-pj">
+                        Se distingue por ser impredecible, guiado por cambios de humor y por poner apodos de criaturas
+                        marinas a los demás. Su magia única es <em>Bind The Heart</em>, con la que logra desviar y
+                        distorsionar los ataques mágicos de sus oponentes.
+                    </p>
+                    <div class="barrita-grupo">
+                        <div class="barrita"></div>
+                        <div class="punto-barrita"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modales -->
+        <div id="modal-ambientes" class="overlay">
+            <div class="caja-modal">
+                <h3>Ambientes del Dormitorio</h3>
+                <ul>
+                    <li><strong>Frontis de Octavinelle:</strong> Fachada de arquitectura clásica sumergida con acabados
+                        elegantes e inspiración marina.</li>
+                    <li><strong>Mostro Lounge:</strong> Famoso restaurante del dormitorio decorado al estilo lounge
+                        nocturno donde Azul actúa como gerente.</li>
+                    <li><strong>Oficina VIP:</strong> Despacho privado de Azul Ashengrotto reservado para negocios y
+                        firmas de contratos mágicos.</li>
+                </ul>
+                <button class="btn-cerrar" onclick="ocultarModal('modal-ambientes')">Cerrar</button>
+            </div>
+        </div>
+
+        <div id="modal-libro3" class="overlay">
+            <div class="caja-modal">
+                <h3>Resumen: Libro 3</h3>
+                <p><strong>The Merchant of the Deep:</strong> Azul ofrece ayuda académica a los estudiantes reprobados
+                    mediante contratos ventajosos. Grim y Yuu terminan trabajando en el Mostro Lounge para recuperar las
+                    notas. Tras descubrir el secreto del poder de Azul y causar su <em>Overblot</em>, logran liberarlo
+                    de sus inseguridades del pasado.</p>
+                <button class="btn-cerrar" onclick="ocultarModal('modal-libro3')">Cerrar</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="static/js/script.js"></script>
+</body>
+
+</html>

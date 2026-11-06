@@ -1,0 +1,418 @@
+/* Variables basicas */
+:root {
+    --bg-fondo: #e8f0fe;
+    --gris-oscuro: #5b6480;
+    --gris-claro: #d9dbec;
+    --texto: #2b3040;
+    --radio-caja: 20px;
+    --radio-btn: 16px;
+    /* Sombra sutil para retoque suave */
+    --sombra-sutil: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-fondo);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--texto);
+    display: flex;
+    justify-content: center;
+    padding: 20px 10px;
+    min-height: 100vh;
+}
+
+/* Marco simulacion movil */
+.contenedor-principal {
+    width: 100%;
+    max-width: 390px;
+    background-color: #f7f9fc;
+    border: 3px solid #64b5f6;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    position: relative;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Manejo de pantallas */
+.pantalla {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pantalla.activa {
+    display: flex;
+}
+
+/* Header / Banner */
+.banner {
+    background: linear-gradient(135deg, #dfd7f0 0%, #c9c3e6 100%);
+    border-radius: var(--radio-caja);
+    padding: 15px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--sombra-sutil);
+}
+
+.banner-texto h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1e1b38;
+    line-height: 1.1;
+}
+
+/* Linea fina color plata */
+.linea-divisoria {
+    width: 100%;
+    height: 1px;
+    background-color: #9b9b9b;
+    margin: 5px 0;
+    border-radius: 1px;
+}
+
+.banner-texto p {
+    font-size: 13px;
+    color: #534c77;
+}
+
+/* Ranura para la imagen del logo */
+.logo-box {
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.titulo-seccion {
+    font-size: 20px;
+    font-weight: 700;
+    color: #3b4256;
+    text-align: center;
+    margin-top: 4px;
+}
+
+/* Grid de tarjetas principales */
+.grid-tarjetas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.tarjeta-opcion {
+    background-color: var(--gris-oscuro);
+    border-radius: var(--radio-caja);
+    color: #fff;
+    position: relative;
+    cursor: pointer;
+    box-shadow: var(--sombra-sutil);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-opcion:active {
+    transform: scale(0.98);
+}
+
+.tarjeta-opcion.centrada {
+    grid-column: span 2;
+    width: 65%;
+    justify-self: center;
+}
+
+/* Casilla para la imagen representativa (Marcada en rojo en tu wireframe) */
+.imagen-tarjeta {
+    width: 100%;
+    height: 65px;
+    background-color: rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.img-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contenido-tarjeta {
+    padding: 12px 14px 14px 14px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.tarjeta-opcion h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.tarjeta-opcion p {
+    font-size: 10px;
+    color: #cbd3e6;
+    margin-bottom: 12px;
+}
+
+/* Acordeones */
+.lista-desplegables {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-desplegable {
+    background-color: #8da1ab;
+    border: none;
+    border-radius: var(--radio-btn);
+    padding: 14px 16px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    box-shadow: var(--sombra-sutil);
+    width: 100%;
+    text-align: left;
+}
+
+.flecha {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.btn-desplegable.activo .flecha {
+    transform: rotate(180deg);
+}
+
+.info-btn h4 {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.info-btn span {
+    font-size: 11px;
+    color: #e0e8ed;
+}
+
+.contenido-desplegable {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background-color: #fff;
+    border-radius: 12px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--texto);
+    padding: 0 14px;
+    box-shadow: var(--sombra-sutil);
+}
+
+.contenido-desplegable.abierto {
+    max-height: 250px;
+    padding: 12px 14px;
+    margin-top: -4px;
+}
+
+/* Pantalla de Personajes */
+#personajes {
+    position: relative;
+    padding-top: 30px;
+    gap: 35px;
+}
+
+/* Boton volver */
+.btn-volver {
+    position: absolute;
+    top: -16px;
+    left: -16px;
+    width: 60px;
+    height: 60px;
+    background-color: #72a3a6;
+    border-radius: 0 0 30px 0;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor del personaje */
+.tarjeta-pj {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Avatar que sobresale a la izquierda */
+.avatar-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 130px;
+    height: 130px;
+    background-color: #555b76;
+    border-radius: 18px;
+    overflow: hidden;
+    z-index: 2;
+    box-shadow: var(--sombra-sutil);
+}
+
+.img-pj {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Tarjeta lavanda de fondo */
+.cuerpo-tarjeta {
+    background-color: #dfdaf0;
+    border-radius: 20px;
+    margin-left: 35px;
+    margin-top: 35px;
+    padding: 16px 16px 16px 105px;
+    box-shadow: var(--sombra-sutil);
+    position: relative;
+    z-index: 1;
+}
+
+/* Titulo PJ */
+.nombre-pj {
+    font-size: 24px;
+    font-weight: 800;
+    color: #6571a8;
+    line-height: 1.1;
+    margin-bottom: 8px;
+}
+
+/* Datos tecnicos */
+.caja-info {
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius: 12px;
+    padding: 8px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #666a7b;
+    line-height: 1.35;
+    margin-bottom: 12px;
+}
+
+/* Descripcion */
+.desc-pj {
+    font-size: 11px;
+    line-height: 1.45;
+    color: #6d7182;
+    margin-bottom: 10px;
+}
+
+/* Barrita + punto inferior */
+.barrita-grupo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    margin-top: 5px;
+}
+
+.barrita {
+    width: 45px;
+    height: 8px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.punto-barrita {
+    width: 8px;
+    height: 8px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+/* Modales */
+.overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.overlay.activo {
+    display: flex;
+}
+
+.caja-modal {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+    max-height: 85%;
+    overflow-y: auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.caja-modal h3 {
+    font-size: 18px;
+    color: #3b4256;
+}
+
+.caja-modal p,
+.caja-modal ul {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #5e6578;
+}
+
+.caja-modal ul {
+    padding-left: 16px;
+}
+
+.btn-cerrar {
+    align-self: flex-end;
+    background-color: var(--gris-oscuro);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 12px;
+    cursor: pointer;
+}
